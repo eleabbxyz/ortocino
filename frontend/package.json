@@ -1,0 +1,1 @@
+{"name":"ortovicino-frontend","version":"0.1.0","private":true,"type":"module","scripts":{"dev":"vite --host 0.0.0.0","build":"vite build","preview":"vite preview --host 0.0.0.0"},"dependencies":{"vue":"^3.5.13","leaflet":"^1.9.4"},"devDependencies":{"vite":"^6.1.0","@vitejs/plugin-vue":"^5.2.1"}}
