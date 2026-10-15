@@ -6,7 +6,7 @@ defmodule Ortovicino.Application do
       {Registry, keys: :duplicate, name: Ortovicino.ChatRegistry},
       Ortovicino.RateLimiter,
       {Plug.Cowboy, scheme: :http, plug: OrtovicinoWeb.Router,
-       options: [port: Application.fetch_env!(:ortovicino, :port), ip: {127, 0, 0, 1}]}
+       options: [port: Application.fetch_env!(:ortovicino, :port), ip: Application.fetch_env!(:ortovicino, :ip)]}
     ]
     Supervisor.start_link(children, strategy: :one_for_one, name: Ortovicino.Supervisor)
   end

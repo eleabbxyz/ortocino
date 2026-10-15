@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    environment:
+      BIND_IP: 0.0.0.0
+      DATABASE_PATH: /app/data/ortovicino.sqlite3
+      # Local development only: activation links are printed in backend logs.
+      DEV_EMAIL_LINKS: "true"
+    volumes:
+      - database:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "http://127.0.0.1:4000/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+  frontend:
+    build: ./frontend
+    environment:
+      API_PROXY_TARGET: http://backend:4000
+    ports:
+      - "127.0.0.1:5173:5173"
+    depends_on:
+      backend:
+        condition: service_healthy
+volumes:
+  database:

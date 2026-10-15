@@ -15,6 +15,27 @@ Prototipo full-stack con **Vue 3, Leaflet 1.9, Elixir/Plug, Ecto e SQLite**. Asp
 - Recensioni con autore autenticato, massimo una per autore e annuncio, non consentite al proprietario.
 - Regole di limitazione per login, registrazioni e invio di messaggi (rudimentali, in memoria).
 
+## Avvia con Docker Desktop (senza installare Elixir o Node.js)
+
+Apri Docker Desktop e attendi che il motore sia avviato. Dal terminale, nella cartella `ortovicino-mini`, esegui:
+
+```bash
+docker compose up -d --build
+```
+
+Apri **http://localhost:5173**. La prima compilazione richiede una connessione Internet e può durare alcuni minuti. Il sito è accessibile solo dal PC locale; il backend non pubblica porte sul PC.
+
+Per la registrazione in locale non vengono inviate email: il collegamento di attivazione compare nei log, leggibili anche da Docker Desktop nel servizio `backend`:
+
+```bash
+docker compose logs --tail=100 backend
+```
+
+Per fermare il progetto: `docker compose down`. Per riavviarlo: `docker compose up -d`.
+Il database Docker usa un volume persistente separato dal database locale. **Non usare `docker compose down -v` se vuoi conservare i dati.** Le migrazioni vengono applicate all'avvio; esegui un backup prima di aggiornare un database con dati importanti.
+
+Questa configurazione è solo per sviluppo locale. Dopo modifiche al codice esegui di nuovo `docker compose up -d --build`.
+
 ## Avvia sul PC
 
 Prerequisiti: **Elixir >= 1.16**, Erlang/OTP supportato, **Node.js >= 20**, npm, un compilatore C per bcrypt, e connessione internet alla prima installazione.

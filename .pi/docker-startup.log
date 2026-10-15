@@ -1,0 +1,366 @@
+ Image ortovicino-mini-backend Building 
+ Image ortovicino-mini-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.25kB done
+#1 DONE 0.0s
+
+#2 [backend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 385B 0.0s done
+#2 DONE 0.0s
+
+#3 [frontend internal] load build definition from Dockerfile
+#3 transferring dockerfile: 247B 0.0s done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/elixir:1.18-otp-27
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/library/node:22-bookworm-slim
+#5 DONE 0.7s
+
+#6 [frontend internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/elixir:1.18-otp-27
+#4 DONE 0.7s
+
+#7 [backend internal] load .dockerignore
+#7 transferring context: 2B done
+#7 DONE 0.0s
+
+#8 [frontend 1/7] FROM docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392
+#8 resolve docker.io/library/node:22-bookworm-slim@sha256:c3de60bf2f9dd0ac6370e6117950ff62d6e339527e7472301c9c78a017978392 0.0s done
+#8 DONE 0.0s
+
+#9 [frontend 2/7] WORKDIR /app
+#9 CACHED
+
+#10 [backend  1/10] FROM docker.io/library/elixir:1.18-otp-27@sha256:2c3babc5e569d8ee1c289dc7907c076d1e26253e6b9ecdb9bcc78f593508b013
+#10 resolve docker.io/library/elixir:1.18-otp-27@sha256:2c3babc5e569d8ee1c289dc7907c076d1e26253e6b9ecdb9bcc78f593508b013 0.0s done
+#10 DONE 0.0s
+
+#11 [backend  2/10] WORKDIR /app
+#11 CACHED
+
+#12 [backend  3/10] RUN mix local.hex --force && mix local.rebar --force
+#12 CACHED
+
+#13 [frontend internal] load build context
+#13 transferring context: 44.14kB 0.1s done
+#13 DONE 0.1s
+
+#14 [frontend 3/7] COPY package.json package-lock.json ./
+#14 DONE 0.0s
+
+#15 [backend internal] load build context
+#15 transferring context: 7.98kB 0.0s done
+#15 DONE 0.1s
+
+#16 [backend  4/10] COPY mix.exs mix.lock ./
+#16 DONE 0.0s
+
+#17 [backend  5/10] RUN mix deps.get && mix deps.compile
+#17 2.761 Resolving Hex dependencies...
+#17 2.970 Resolution completed in 0.196s
+#17 2.989 Unchanged:
+#17 2.989   bcrypt_elixir 3.3.2
+#17 2.994   cc_precompiler 0.1.11
+#17 2.995   comeonin 5.5.1
+#17 2.995   cowboy 2.20.0
+#17 2.995   cowboy_telemetry 0.4.0
+#17 2.995   cowlib 2.21.0 VULNERABLE!
+#17 2.997     EEF-CVE-2026-43966 (MEDIUM)
+#17 2.997     aka: CVE-2026-43966, GHSA-w4f7-4cxr-rv3c
+#17 2.997     HTTP Response Splitting via Non-VCHAR Bytes in cow_http_struct_hd:escape_string/2
+#17 2.997     https://osv.dev/vulnerability/EEF-CVE-2026-43966
+#17 2.997   db_connection 2.10.2
+#17 2.997   decimal 3.2.0
+#17 2.997   ecto 3.14.2
+#17 2.997   ecto_sql 3.14.0
+#17 2.997   ecto_sqlite3 0.25.0
+#17 2.997   elixir_make 0.10.0
+#17 2.997   exqlite 0.42.0
+#17 2.997   jason 1.4.5
+#17 2.997   mime 2.0.7
+#17 2.997   plug 1.20.3
+#17 2.998   plug_cowboy 2.9.0
+#17 2.998   plug_crypto 2.2.0
+#17 2.998   ranch 2.3.0
+#17 2.998   telemetry 1.4.2
+#17 3.022 * Getting plug_cowboy (Hex package)
+#17 3.186 * Getting ecto_sql (Hex package)
+#17 3.277 * Getting ecto_sqlite3 (Hex package)
+#17 3.444 * Getting jason (Hex package)
+#17 3.478 * Getting bcrypt_elixir (Hex package)
+#17 3.515 * Getting comeonin (Hex package)
+#17 3.544 * Getting elixir_make (Hex package)
+#17 3.570 * Getting decimal (Hex package)
+#17 3.604 * Getting ecto (Hex package)
+#17 3.731 * Getting exqlite (Hex package)
+#17 3.959 * Getting cc_precompiler (Hex package)
+#17 3.973 * Getting db_connection (Hex package)
+#17 3.995 * Getting telemetry (Hex package)
+#17 4.020 * Getting cowboy (Hex package)
+#17 4.057 * Getting cowboy_telemetry (Hex package)
+#17 4.073 * Getting plug (Hex package)
+#17 4.140 * Getting mime (Hex package)
+#17 4.156 * Getting plug_crypto (Hex package)
+#17 4.175 * Getting cowlib (Hex package)
+#17 4.215 * Getting ranch (Hex package)
+#17 4.239 Found packages with security advisories, see above for details
+#17 4.239 You have added/upgraded packages you could sponsor, run `mix hex.sponsor` to learn more
+#17 ...
+
+#18 [frontend 4/7] RUN npm ci
+#18 4.688 
+#18 4.688 added 36 packages, and audited 37 packages in 4s
+#18 4.688 
+#18 4.689 6 packages are looking for funding
+#18 4.689   run `npm fund` for details
+#18 4.691 
+#18 4.691 found 0 vulnerabilities
+#18 4.694 npm notice
+#18 4.694 npm notice New major version of npm available! 10.9.9 -> 12.2.0
+#18 4.694 npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+#18 4.694 npm notice To update run: npm install -g npm@12.2.0
+#18 4.694 npm notice
+#18 DONE 4.9s
+
+#19 [frontend 5/7] COPY index.html vite.config.js ./
+#19 DONE 0.1s
+
+#17 [backend  5/10] RUN mix deps.get && mix deps.compile
+#17 ...
+
+#20 [frontend 6/7] COPY src ./src
+#20 DONE 0.1s
+
+#21 [frontend 7/7] COPY public ./public
+#21 DONE 0.1s
+
+#22 [frontend] exporting to image
+#22 exporting layers
+#22 exporting layers 4.8s done
+#22 exporting manifest sha256:af81b5b314c16f1ea1b54d0bb42ba2a7d1727cbef1df318cca8b8f4d7ef5c5b9 0.0s done
+#22 exporting config sha256:e74e5430577fbc4dfbb98ad602994fe1635bc7efe9d6dfa506708d3d1985916b 0.0s done
+#22 exporting attestation manifest sha256:3c9059e96b41c36598d147d479345c7c8460eab0c1ae823a622e7d4d0464c4b7
+#22 exporting attestation manifest sha256:3c9059e96b41c36598d147d479345c7c8460eab0c1ae823a622e7d4d0464c4b7 0.0s done
+#22 exporting manifest list sha256:cd8f6e8b99c01124bf2156c85cdcd0fa9814eb29eb86b2b64379a78db7a2ab52 0.0s done
+#22 naming to docker.io/library/ortovicino-mini-frontend:latest done
+#22 unpacking to docker.io/library/ortovicino-mini-frontend:latest
+#22 unpacking to docker.io/library/ortovicino-mini-frontend:latest 1.4s done
+#22 DONE 6.5s
+
+#17 [backend  5/10] RUN mix deps.get && mix deps.compile
+#17 6.116 ==> decimal
+#17 6.116 Compiling 4 files (.ex)
+#17 7.678 Generated decimal app
+#17 7.718 ==> mime
+#17 7.718 Compiling 1 file (.ex)
+#17 7.887 Generated mime app
+#17 8.880 ==> ortovicino
+#17 8.880 ===> Analyzing applications...
+#17 8.960 ===> Compiling telemetry
+#17 9.429 ==> jason
+#17 9.429 Compiling 10 files (.ex)
+#17 ...
+
+#23 [frontend] resolving provenance for metadata file
+#23 DONE 0.0s
+
+#17 [backend  5/10] RUN mix deps.get && mix deps.compile
+#17 12.44 Generated jason app
+#17 12.50 ==> comeonin
+#17 12.50 Compiling 3 files (.ex)
+#17 12.54 Generated comeonin app
+#17 12.61 ==> db_connection
+#17 12.61 Compiling 18 files (.ex)
+#17 13.92 Generated db_connection app
+#17 14.02 ==> plug_crypto
+#17 14.02 Compiling 5 files (.ex)
+#17 14.21 Generated plug_crypto app
+#17 15.22 ==> ortovicino
+#17 15.22 ===> Analyzing applications...
+#17 15.32 ===> Compiling ranch
+#17 16.09 ==> ecto
+#17 16.09 Compiling 56 files (.ex)
+#17 21.14 Generated ecto app
+#17 21.25 ==> plug
+#17 21.25 Compiling 1 file (.erl)
+#17 21.66 Compiling 42 files (.ex)
+#17 24.60 Generated plug app
+#17 24.76 ==> ecto_sql
+#17 24.76 Compiling 25 files (.ex)
+#17 25.75 Generated ecto_sql app
+#17 25.80 ==> elixir_make
+#17 25.80 Compiling 8 files (.ex)
+#17 26.05 Generated elixir_make app
+#17 26.09 ==> bcrypt_elixir
+#17 26.10 mkdir -p "/app/_build/dev/lib/bcrypt_elixir/priv"
+#17 26.10 cc -g -O3 -Wall -Wno-format-truncation -I"/usr/local/lib/erlang/erts-15.2.7.14/include" -Ic_src -fPIC -shared  c_src/bcrypt_nif.c c_src/blowfish.c -o "/app/_build/dev/lib/bcrypt_elixir/priv/bcrypt_nif.so"
+#17 26.67 Compiling 3 files (.ex)
+#17 26.74 Generated bcrypt_elixir app
+#17 26.77 ==> cc_precompiler
+#17 26.77 Compiling 3 files (.ex)
+#17 26.95 Generated cc_precompiler app
+#17 27.00 ==> exqlite
+#17 27.00 Downloading precompiled NIF to /root/.cache/elixir_make/exqlite-nif-2.17-x86_64-linux-gnu-0.42.0.tar.gz
+#17 27.71 Compiling 12 files (.ex)
+#17 28.13 Generated exqlite app
+#17 28.20 ==> ecto_sqlite3
+#17 28.20 Compiling 5 files (.ex)
+#17 29.01 Generated ecto_sqlite3 app
+#17 29.86 ==> ortovicino
+#17 29.86 ===> Analyzing applications...
+#17 30.10 ===> Compiling cowlib
+#17 46.12 ===> Analyzing applications...
+#17 46.22 ===> Compiling cowboy
+#17 48.76 ===> Analyzing applications...
+#17 48.81 ===> Compiling cowboy_telemetry
+#17 49.19 ==> plug_cowboy
+#17 49.19 Compiling 5 files (.ex)
+#17 49.34 Generated plug_cowboy app
+#17 DONE 49.4s
+
+#24 [backend  6/10] COPY config ./config
+#24 DONE 0.1s
+
+#25 [backend  7/10] COPY lib ./lib
+#25 DONE 0.0s
+
+#26 [backend  8/10] COPY priv ./priv
+#26 DONE 0.0s
+
+#27 [backend  9/10] COPY test ./test
+#27 DONE 0.0s
+
+#28 [backend 10/10] RUN mix compile
+#28 1.501 Compiling 15 files (.ex)
+#28 1.555     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.555     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.555     You may run "mix format --migrate" to change all single-quoted
+#28 1.555     strings to use the ~c sigil and fix this warning.
+#28 1.555     │
+#28 1.555  13 │       headers = [{'authorization', 'Bearer ' ++ String.to_charlist(key)}, {'content-type', 'application/json'}]
+#28 1.555     │                   ~
+#28 1.555     │
+#28 1.555     └─ lib/ortovicino/mailer.ex:13:19
+#28 1.555 
+#28 1.556     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.556     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.556     You may run "mix format --migrate" to change all single-quoted
+#28 1.556     strings to use the ~c sigil and fix this warning.
+#28 1.556     │
+#28 1.556  13 │       headers = [{'authorization', 'Bearer ' ++ String.to_charlist(key)}, {'content-type', 'application/json'}]
+#28 1.556     │                                    ~
+#28 1.556     │
+#28 1.556     └─ lib/ortovicino/mailer.ex:13:36
+#28 1.556 
+#28 1.556     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.556     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.556     You may run "mix format --migrate" to change all single-quoted
+#28 1.556     strings to use the ~c sigil and fix this warning.
+#28 1.556     │
+#28 1.556  13 │       headers = [{'authorization', 'Bearer ' ++ String.to_charlist(key)}, {'content-type', 'application/json'}]
+#28 1.556     │                                                                            ~
+#28 1.556     │
+#28 1.556     └─ lib/ortovicino/mailer.ex:13:76
+#28 1.556 
+#28 1.558     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.558     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.558     You may run "mix format --migrate" to change all single-quoted
+#28 1.558     strings to use the ~c sigil and fix this warning.
+#28 1.558     │
+#28 1.558  13 │       headers = [{'authorization', 'Bearer ' ++ String.to_charlist(key)}, {'content-type', 'application/json'}]
+#28 1.558     │                                                                                            ~
+#28 1.558     │
+#28 1.558     └─ lib/ortovicino/mailer.ex:13:92
+#28 1.558 
+#28 1.558     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.558     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.558     You may run "mix format --migrate" to change all single-quoted
+#28 1.558     strings to use the ~c sigil and fix this warning.
+#28 1.558     │
+#28 1.558  14 │       case :httpc.request(:post, {'https://api.resend.com/emails', headers, 'application/json', String.to_charlist(payload)}, [{:timeout, 8_000}], []) do
+#28 1.558     │                                   ~
+#28 1.558     │
+#28 1.558     └─ lib/ortovicino/mailer.ex:14:35
+#28 1.558 
+#28 1.558     warning: using single-quoted strings to represent charlists is deprecated.
+#28 1.558     Use ~c"" if you indeed want a charlist or use "" instead.
+#28 1.558     You may run "mix format --migrate" to change all single-quoted
+#28 1.558     strings to use the ~c sigil and fix this warning.
+#28 1.558     │
+#28 1.558  14 │       case :httpc.request(:post, {'https://api.resend.com/emails', headers, 'application/json', String.to_charlist(payload)}, [{:timeout, 8_000}], []) do
+#28 1.558     │                                                                             ~
+#28 1.558     │
+#28 1.558     └─ lib/ortovicino/mailer.ex:14:77
+#28 1.558 
+#28 2.359      warning: the following pattern will never match:
+#28 2.359 
+#28 2.359          {:ok, conn} =
+#28 2.359            Plug.Conn.send_chunked(
+#28 2.359              Plug.Conn.put_resp_content_type(
+#28 2.359                Plug.Conn.put_resp_header(
+#28 2.359                  Plug.Conn.put_resp_header(conn, "cache-control", "no-store"),
+#28 2.359                  "x-accel-buffering",
+#28 2.359                  "no"
+#28 2.359                ),
+#28 2.359                "text/event-stream"
+#28 2.359              ),
+#28 2.359              200
+#28 2.359            )
+#28 2.359 
+#28 2.359      because the right-hand side has type:
+#28 2.359 
+#28 2.359          dynamic(%{
+#28 2.359            ...,
+#28 2.359            adapter: {term(), term()},
+#28 2.359            resp_body: term(),
+#28 2.359            resp_headers: term(),
+#28 2.359            state: :chunked
+#28 2.359          })
+#28 2.359 
+#28 2.359      where "conn" was given the type:
+#28 2.359 
+#28 2.359          # type: dynamic()
+#28 2.359          # from: deps/plug/lib/plug/router.ex:191:34
+#28 2.359          {:ok, conn, {_s, user}} <- authenticated(conn)
+#28 2.359 
+#28 2.359      typing violation found at:
+#28 2.359      │
+#28 2.359  192 │ 
+#28 2.359      │                   ~
+#28 2.359      │
+#28 2.359      └─ deps/plug/lib/plug/router.ex:192:19: OrtovicinoWeb.Router.do_match/4
+#28 2.359 
+#28 2.367 Generated ortovicino app
+#28 DONE 2.6s
+
+#29 [backend] exporting to image
+#29 exporting layers
+#29 exporting layers 1.7s done
+#29 exporting manifest sha256:2bd6d498ef0912bcc424542dc3891e13c961fc7339dbc7862e70f3da46df3066 0.0s done
+#29 exporting config sha256:acd0b0824ce1f0545ddef20622d485b10eda18735ec69ab2af36ef82dca1bb42 0.0s done
+#29 exporting attestation manifest sha256:58eabb7596df42d4a3365647d83b9937f18506ef8ca98a3cc0f3d001ccdce63a 0.0s done
+#29 exporting manifest list sha256:d50ef861cacfe8ba3577400bfc4d4a70f0e4a6c0a4819a5a0f32c793add06f9a 0.0s done
+#29 naming to docker.io/library/ortovicino-mini-backend:latest done
+#29 unpacking to docker.io/library/ortovicino-mini-backend:latest
+#29 unpacking to docker.io/library/ortovicino-mini-backend:latest 0.6s done
+#29 DONE 2.3s
+
+#30 [backend] resolving provenance for metadata file
+#30 DONE 0.0s
+ Image ortovicino-mini-backend Built 
+ Image ortovicino-mini-frontend Built 
+ Container ortovicino-mini-backend-1 Recreate 
+ Container ortovicino-mini-backend-1 Recreated 
+ Container ortovicino-mini-frontend-1 Recreate 
+ Container ortovicino-mini-frontend-1 Recreated 
+ Container ortovicino-mini-backend-1 Starting 
+ Container ortovicino-mini-backend-1 Started 
+ Container ortovicino-mini-backend-1 Waiting 
+ Container ortovicino-mini-backend-1 Healthy 
+ Container ortovicino-mini-frontend-1 Starting 
+ Container ortovicino-mini-frontend-1 Started 
